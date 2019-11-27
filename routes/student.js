@@ -17,6 +17,20 @@ router.get('/', function(req, res, next) {
   );
 });
 
+router.post('/', async function(req, res, next) {
+  try {
+    const newStudent = await Student.create(req.body);
+    // const newStudent = await Student.create({
+    //   // firstName: 'Tina',
+    //   // lastName: 'Sosa',
+    // });
+    console.log(newStudent);
+    res.send(newStudent);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.put('/:id', function(req, res, next) {
   Student.update(req.body, {
     where: {
