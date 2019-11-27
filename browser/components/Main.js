@@ -45,13 +45,22 @@ export default class Main extends Component {
     });
   }
 
+  async addStudent(newStudent) {
+    const res = await axios.post(`/student`, newStudent);
+    this.setState({
+      students: [...students, res.data],
+    });
+  }
+
   render() {
     console.log('this is the state in main', this.state);
     return (
       <div>
         <h1>Students</h1>
         <button onClick={this.handleClick}>Add Student</button>
-        {this.state.showStudent ? <NewStudentForm /> : null}
+        {this.state.showStudent ? (
+          <NewStudentForm addStudent={this.addStudent} />
+        ) : null}
         <table>
           <thead>
             <tr>

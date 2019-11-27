@@ -19,6 +19,8 @@ export default class NewStudentForm extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    //pass in as a prop
+    this.props.addStudent(this.state);
     this.setState({
       firstName: '',
       lastName: '',
@@ -27,6 +29,7 @@ export default class NewStudentForm extends Component {
   }
 
   render() {
+    console.log('this is props from new student form', this.props);
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
