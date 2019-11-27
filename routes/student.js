@@ -24,7 +24,7 @@ router.post('/', async function(req, res, next) {
     //   // firstName: 'Tina',
     //   // lastName: 'Sosa',
     // });
-    console.log(newStudent);
+    // console.log(newStudent);
     res.send(newStudent);
   } catch (error) {
     next(error);
